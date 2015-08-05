@@ -47,8 +47,6 @@ var CustomerSchema = new Schema({
 	},
 	referred: {
 		type: Boolean,
-		default: false,
-		trim: true
 	},
 	channel: {
 		type: String,
