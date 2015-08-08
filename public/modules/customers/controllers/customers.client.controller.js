@@ -13,16 +13,18 @@ customersApp.controller('CustomersController', ['$scope', '$stateParams', '$moda
 		this.customers = Customers.query();
 
 		// Open a modal window to Update a single customer record
-		$scope.open = function (size) {
+		this.modalUpdate = function (size, selectedCustomer) {
 
 	    var modalInstance = $modal.open({
-	      animation: $scope.animationsEnabled,
-	      templateUrl: 'myModalContent.html',
-	      controller: 'ModalInstanceCtrl',
+	      // animation: $scope.animationsEnabled,
+	      templateUrl: 'modules/customers/views/edit-customer.client.view.html',
+	      controller: function ($scope, $modalInstance, customer) {
+	      	$scope.customer = customer;
+	      },
 	      size: size,
 	      resolve: {
-	        items: function () {
-	          return $scope.items;
+	        customer: function () {
+	          return selectedCustomer;
 	        }
 	      }
 	    });
@@ -32,6 +34,10 @@ customersApp.controller('CustomersController', ['$scope', '$stateParams', '$moda
 	    }, function () {
 	      $log.info('Modal dismissed at: ' + new Date());
 	    });
+
+	   //  $scope.toggleAnimation = function () {
+		  //   $scope.animationsEnabled = !$scope.animationsEnabled;
+		  // };
 	  };
 
 	}
