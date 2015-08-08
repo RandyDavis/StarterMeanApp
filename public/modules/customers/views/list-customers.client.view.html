@@ -2,8 +2,26 @@
     <div class="page-header">
         <h1>Customers</h1>
     </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" ng-model="searchText" placeholder="Search for...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 text-center">
+            <button class="btn btn-sm btn-success text-center">
+                <i class="glyphicon glyphicon-user"></i><br>
+                    New Customer
+            </button>
+        </div>
+    </div>
+    <br>
+    <br>
     <div class="list-group">
-        <div class="col-xs-6 col-sm-4" data-ng-repeat="customer in customersCtrl.customers">
+        <div class="col-xs-6 col-sm-4" data-ng-repeat="customer in customersCtrl.customers| filter:searchText">
             <a data-ng-href="#!/customers/{{customer._id}}" class="list-group-item">
                 <h4 class="cust-list text-center">
                     <i class="glyphicon glyphicon-user"></i>
