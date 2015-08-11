@@ -10,6 +10,11 @@
                     <h4>{{customer.firstName}} {{customer.lastName}}</h4>
                     <small class="list-group-item-text text-muted">
                         <span data-ng-bind="customer.created | date:'medium'"></span>
+                        <span class="pull-right">
+                            <button class="btn btn-default btn-sm" data-ng-click="customersCtrl.remove(customer)">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </span>
                     </small>
                 </div>
             </div>
