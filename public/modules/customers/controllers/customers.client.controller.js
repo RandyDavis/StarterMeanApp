@@ -23,7 +23,7 @@ customersApp.controller('CustomersController', ['$scope', '$stateParams', '$moda
 	      	$scope.ok = function () {
 
 	      			if(createCustomerForm.$valid) {
-				    	$modalInstance.close();
+				    	$modalInstance.close($scope.customer);
 	      			}
 				  };
 
